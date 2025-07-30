@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibas Pokhrel | Water Resource Engineer & Hydroinformatics Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+        }
+        .glass-effect {
+            background: rgba(13, 30, 55, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(45, 212, 191, 0.1);
+        }
+        .highlight-cyan {
+            color: #64ffda;
+        }
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: #ccd6f6;
+            margin-bottom: 2rem;
+        }
+        .section-heading::after {
+            content: '';
+            display: block;
+            position: relative;
+            top: 2px;
+            width: 200px;
+            height: 1px;
+            background-color: #233554;
+        }
+        .project-card:hover .project-image {
+            filter: grayscale(0%) brightness(1);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -15px rgba(2,12,27,0.7);
+        }
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        .modal-content {
+            transition: transform 0.25s ease;
+        }
+    </style>
+</head>
+<body class="antialiased leading-relaxed">
+
+    <!-- Canvas for background animation -->
+    <canvas id="hero-canvas" class="fixed top-0 left-0 w-full h-full z-0"></canvas>
+
+    <!-- Main Content -->
+    <div id="content" class="relative z-10">
+
+        <!-- Header / Navigation -->
+        <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold highlight-cyan">BP</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-cyan-400 transition-colors duration-300">About</a>
+                    <a href="#projects" class="hover:text-cyan-400 transition-colors duration-300">Projects</a>
+                    <a href="#skills" class="hover:text-cyan-400 transition-colors duration-300">Skills</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+                <a href="#about" class="block py-2">About</a>
+                <a href="#projects" class="block py-2">Projects</a>
+                <a href="#skills" class="block py-2">Skills</a>
+                <a href="#contact" class="block py-2">Contact</a>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-6 md:px-16 lg:px-24">
+
+            <!-- Hero Section -->
+            <section id="hero" class="min-h-screen flex flex-col justify-center">
+                <p class="text-lg highlight-cyan mb-4">Hi, my name is</p>
+                <h1 class="text-4xl md:text-7xl font-bold text-slate-200">Bibas Pokhrel.</h1>
+                <h2 class="text-4xl md:text-7xl font-bold text-slate-400 mt-2">I engineer water's future.</h2>
+                <p class="mt-6 max-w-xl text-lg text-slate-400">
+                    I'm a Water Resource Engineer specializing in <span class="highlight-cyan">hydroinformatics</span>, flood modeling, and sustainable water management. I leverage data, technology, and first-principles to solve complex water challenges and build resilient systems for a changing world.
+                </p>
+                <div class="mt-8">
+                    <a href="#projects" class="px-8 py-4 border border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400/10 transition-colors duration-300">
+                        View My Work
+                    </a>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-24">
+                <h2 class="section-heading">About Me</h2>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-12 items-center">
+                    <div class="md:col-span-3 text-slate-400 space-y-4 text-lg">
+                        <p>
+                            Hi, I am a Civil Engineer (NEC Registered) driven by a passion for understanding and managing our most critical resource: water. At present, I am contributing to the digitization in the AEC industry, served as the GIS Expert in the largest potable water supply distribution project of Nepal. When I'm not working, I love to explore GIS, BIM, programming, and IoT, as I see their potential on transforming the way we operate in the AEC industry. My journey began at <span class="highlight-cyan">Tribhuvan University (IOE), Nepal</span> and has evolved into a career dedicated to the intersection of traditional civil engineering and modern technology.
+                        </p>
+                        <p>
+                            I believe the future of water resource management lies in the intelligent integration of systems. My core philosophy revolves around using <span class="highlight-cyan">IoT, GIS, AI, and Remote Sensing</span> to create predictive models, optimize infrastructure, and provide clear, actionable insights for decision-makers. Whether it's mapping floodplains with HEC-RAS or developing real-time monitoring dashboards, my goal is to transform raw data into resilient solutions.
+                        </p>
+                        <p>
+                            Beyond engineering, I'm an avid learner, always exploring new technologies and their potential applications. I find inspiration in complex systems, both natural and man-made.
+                        </p>
+                    </div>
+                    <div class="md:col-span-2 flex justify-center">
+                        <div class="w-64 h-64 rounded-lg overflow-hidden relative group">
+                             <div class="absolute inset-0 bg-cyan-400/20 z-10 group-hover:bg-transparent transition-all duration-300"></div>
+                             <img src="https://www.bibaspokhrel.com.np/static/media/avatar.58521247.svg" alt="Bibas Pokhrel Avatar" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="py-24">
+                <h2 class="section-heading">Project Showcase</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Project cards will be injected here by JS -->
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="py-24">
+                <h2 class="section-heading">Core Competencies & Technologies</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center">
+                    <!-- Skills will be injected here by JS -->
+                </div>
+            </section>
+            
+            <!-- Contact Section -->
+            <section id="contact" class="py-24 text-center max-w-2xl mx-auto">
+                <h2 class="text-2xl highlight-cyan">What's Next?</h2>
+                <h3 class="text-4xl md:text-5xl font-bold mt-4 text-slate-200">Get In Touch</h3>
+                <p class="mt-6 text-slate-400 text-lg">
+                    I'm always open to discussing new projects, innovative ideas, or opportunities to collaborate. Whether you have a question or just want to say hi, I'll do my best to get back to you!
+                </p>
+                <div class="mt-10 flex justify-center items-center space-x-6">
+                    <a href="mailto:officialpokhrel20@gmail.com" class="px-8 py-4 border border-cyan-400 text-cyan-400 rounded-md hover:bg-cyan-400/10 transition-colors duration-300">
+                        Say Hello
+                    </a>
+                    <a href="https://www.linkedin.com/in/erbibaspokhrel/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">
+                        <i data-lucide="linkedin" class="w-8 h-8"></i>
+                    </a>
+                    <a href="https://github.com/bibasp" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors duration-300">
+                        <i data-lucide="github" class="w-8 h-8"></i>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center py-6">
+            <p class="text-slate-500 text-sm">Designed & Built by Bibas Pokhrel @ 2025</p>
+        </footer>
+
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="modal fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden opacity-0">
+        <div id="modal-content" class="modal-content glass-effect rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8 relative transform scale-95">
+            <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-cyan-400">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <h3 id="modal-title" class="text-3xl font-bold highlight-cyan mb-4"></h3>
+            <div id="modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
+            <div id="modal-body" class="text-slate-400 space-y-4"></div>
+        </div>
+    </div>
+
+
+    <script>
+        // --- Lucide Icons ---
+        lucide.createIcons();
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Header scroll effect ---
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+                if (lastScrollY < window.scrollY) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+            } else {
+                header.classList.remove('py-2');
+                header.classList.add('py-4');
+                header.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+
+
+        // --- Project Data ---
+        const projects = [
+            {
+                title: "Watershed Flood Risk Mapping & Scenario Analysis",
+                tags: ["HEC-HMS", "HEC-RAS", "GIS", "Flood Modeling"],
+                description: `
+                    <p class="font-semibold text-slate-300">A foundational water resources project simulating flood events to map risk under various conditions.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Legitimacy & Data</h4>
+                    <p>This is a classic industry-standard workflow. Data was sourced from authoritative, public repositories: streamflow from USGS NWIS, flood maps from FEMA, precipitation data from NOAA Atlas 14, and stream networks from the National Hydrography Dataset (NHD).</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Methodology</h4>
+                    <p>Utilized the US Army Corps of Engineers' software suite: HEC-HMS to convert rainfall into flow hydrographs, and HEC-RAS to model how that flow inundates a floodplain. Scenario analysis explored the impacts of future urbanization and climate change on flood risk.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Value & Impact</h4>
+                    <p>This project demonstrates core competency in flood modeling, GIS, and data processing. The scenario analysis component showcases critical thinking about future risks, a key focus for consulting firms and government agencies. It proves an ability to perform end-to-end hydrological and hydraulic analysis.</p>
+                `
+            },
+            {
+                title: "Urban Stormwater Performance Dashboard",
+                tags: ["Python", "Pandas", "Dash/Plotly", "Data Viz"],
+                description: `
+                    <p class="font-semibold text-slate-300">An interactive, open-source web dashboard for monitoring and analyzing the performance of urban stormwater infrastructure.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Legitimacy & Data</h4>
+                    <p>This project sits at the intersection of civil engineering and data science (hydroinformatics). Data was acquired from the EPA's ECHO database, various city open data portals for Green Stormwater Infrastructure (GSI) locations, and USGS for receiving water body context.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Methodology</h4>
+                    <p>Developed using Python with libraries like Pandas and GeoPandas for data wrangling, and Dash for building the interactive web interface. The process involved acquiring, cleaning, and integrating disparate data sources to provide unified insights.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Value & Impact</h4>
+                    <p>Showcases a modern, tech-forward skill set that is a major differentiator. It demonstrates not only the ability to perform analysis but also to communicate complex results effectively in an interactive format. Highly valuable for roles in stormwater management and digital water services.</p>
+                `
+            },
+            {
+                title: "Real-Time Streamflow Web App with Alert System",
+                tags: ["API Integration", "Python/Flask", "Automation"],
+                 description: `
+                    <p class="font-semibold text-slate-300">A web application that fetches live streamflow data and triggers automated alerts based on user-defined thresholds.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Legitimacy & Data</h4>
+                    <p>Leverages the official, well-documented USGS NWIS API, which is designed for exactly this type of real-time data retrieval. This is a practical application of live data streams in an operational context.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Methodology</h4>
+                    <p>Built a web application backend using Python and Flask to periodically fetch data from the USGS API. An alert system was integrated using Python's smtplib library to send email notifications when streamflow levels cross predefined high-water or low-flow thresholds.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Value & Impact</h4>
+                    <p>An impressive demonstration of practical programming and automation. This project proves the ability to build a tool with real-world utility for emergency management, operational hydrology, or water supply monitoring. It showcases skills in working with APIs and building automated systems, a huge plus for technology-focused engineering groups.</p>
+                `
+            },
+            {
+                title: "Water Balance & Drought Analysis for US Basins",
+                tags: ["R/Python", "Data Analysis", "Climate Science"],
+                description: `
+                    <p class="font-semibold text-slate-300">A large-scale analysis of water availability and drought trends across major US river basins.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Legitimacy & Data</h4>
+                    <p>This study is fundamental to water supply planning. It utilized cornerstone datasets: the USGS National Water Census, the US Drought Monitor, and PRISM climate data, all of which are authoritative and publicly available.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Methodology</h4>
+                    <p>Performed a water balance calculation (Precipitation = Evapotranspiration + Streamflow + ΔStorage) for multiple basins. R and Python scripts were used to automate the download, processing, and analysis of these large, multi-decade datasets.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Value & Impact</h4>
+                    <p>Demonstrates strong analytical and data handling skills at a systems level. This project is highly relevant for roles in water supply planning and resource management, particularly in water-scarce regions. It shows the ability to move beyond a single site to analyze an entire watershed.</p>
+                `
+            },
+            {
+                title: "US Dam Safety & Hydropower Opportunity Assessment",
+                tags: ["GIS", "QGIS/ArcGIS", "Infrastructure", "Renewable Energy"],
+                description: `
+                    <p class="font-semibold text-slate-300">A GIS-based screening-level assessment to identify dams with high hazard potential or opportunities for hydropower retrofitting.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Legitimacy & Data</h4>
+                    <p>Based on the definitive public database for this task: the US Army Corps of Engineers' National Inventory of Dams (NID). This was supplemented with energy-specific information from DOE hydropower databases.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Methodology</h4>
+                    <p>Used GIS software (QGIS) to map and spatially analyze the NID data. Dams were filtered and classified based on hazard rating, age, size, and proximity to transmission infrastructure to identify candidates for further study.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Value & Impact</h4>
+                    <p>This interdisciplinary project shows an understanding of infrastructure risk, regulatory frameworks, and renewable energy. It connects civil engineering to the energy sector, a significant growth area, and provides a practical application of GIS skills to a real-world infrastructure problem.</p>
+                `
+            },
+            {
+                title: "Regional Water Reuse Potential Mapping",
+                tags: ["GIS", "Spatial Analysis", "Sustainability"],
+                description: `
+                    <p class="font-semibold text-slate-300">A spatial multi-criteria analysis to identify regions with high potential for implementing water reuse projects.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Legitimacy & Data</h4>
+                    <p>Water reuse is a critical strategy for water sustainability. This analysis combined public data from the EPA on wastewater treatment plant locations and effluent volumes with data from the US Drought Monitor and demographic data to create a holistic picture of need and opportunity.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Methodology</h4>
+                    <p>A classic spatial multi-criteria analysis performed in GIS. Different data layers (water stress, population density, proximity to large water users, wastewater availability) were overlaid and scored to create a suitability index, highlighting high-potential zones for water reuse initiatives.</p>
+                    <h4 class="text-xl font-semibold text-slate-200 mt-4 mb-2">Value & Impact</h4>
+                    <p>Positions at the forefront of a key industry trend. Water reuse is a hot topic, and a candidate showing initiative in this area is very attractive. It demonstrates forward-thinking and skills in using spatial analysis for decision support, which is valuable for planning and policy-focused roles.</p>
+                `
+            }
+        ];
+
+        const projectsContainer = document.querySelector('#projects .grid');
+        projects.forEach((project, index) => {
+            const card = document.createElement('div');
+            card.className = 'project-card glass-effect rounded-lg p-6 flex flex-col justify-between cursor-pointer transition-transform duration-300';
+            card.dataset.index = index;
+            
+            let tagsHtml = project.tags.map(tag => `<span class="text-xs font-mono highlight-cyan">${tag}</span>`).join(' ');
+
+            card.innerHTML = `
+                <div>
+                    <div class="flex justify-between items-center mb-4">
+                        <i data-lucide="folder-kanban" class="w-10 h-10 text-cyan-400"></i>
+                        <div class="flex items-center space-x-2">
+                             <i data-lucide="arrow-up-right-square" class="w-6 h-6 text-slate-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-200 mb-2 hover:text-cyan-400">${project.title}</h3>
+                    <p class="text-slate-400 mb-4">${project.description.split('</p>')[0].replace('<p class="font-semibold text-slate-300">', '')}</p>
+                </div>
+                <div class="flex flex-wrap gap-x-4 gap-y-2 mt-auto">
+                    ${tagsHtml}
+                </div>
+            `;
+            projectsContainer.appendChild(card);
+        });
+
+        // --- Skills Data ---
+        const skills = [
+            { name: "HEC-RAS", icon: "waves" },
+            { name: "HEC-HMS", icon: "cloud-rain" },
+            { name: "Python", icon: "code" },
+            { name: "Pandas/GeoPandas", icon: "table-2" },
+            { name: "R", icon: "bar-chart-big" },
+            { name: "GIS (QGIS/ArcGIS)", icon: "map" },
+            { name: "SQL", icon: "database" },
+            { name: "AutoCAD", icon: "pencil-ruler" },
+            { name: "Remote Sensing", icon: "satellite-dish" },
+            { name: "AI/ML Concepts", icon: "brain-circuit" },
+            { name: "Data Visualization", icon: "area-chart" },
+            { name: "API Integration", icon: "plug-zap" },
+        ];
+
+        const skillsContainer = document.querySelector('#skills .grid');
+        skills.forEach(skill => {
+            const skillElement = document.createElement('div');
+            skillElement.className = 'glass-effect p-4 rounded-lg flex flex-col items-center justify-center gap-2';
+            skillElement.innerHTML = `
+                <i data-lucide="${skill.icon}" class="w-10 h-10 highlight-cyan"></i>
+                <span class="text-slate-300">${skill.name}</span>
+            `;
+            skillsContainer.appendChild(skillElement);
+        });
+        
+        // Re-run lucide after dynamic injection
+        lucide.createIcons();
+
+        // --- Modal Logic ---
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+        const closeModalButton = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalTags = document.getElementById('modal-tags');
+        const modalBody = document.getElementById('modal-body');
+
+        projectsContainer.addEventListener('click', (e) => {
+            const card = e.target.closest('.project-card');
+            if (card) {
+                const projectIndex = card.dataset.index;
+                const project = projects[projectIndex];
+                
+                modalTitle.textContent = project.title;
+                modalBody.innerHTML = project.description;
+                
+                modalTags.innerHTML = '';
+                project.tags.forEach(tag => {
+                    const tagEl = document.createElement('span');
+                    tagEl.className = 'bg-cyan-400/10 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full';
+                    tagEl.textContent = tag;
+                    modalTags.appendChild(tagEl);
+                });
+
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+        });
+
+        const closeModal = () => {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 250);
+        };
+
+        closeModalButton.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // --- Background Canvas Animation ---
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+
+        // get mouse position
+        let mouse = {
+            x: null,
+            y: null,
+            radius: (canvas.height/120) * (canvas.width/120)
+        }
+
+        window.addEventListener('mousemove', 
+            function(event) {
+                mouse.x = event.x;
+                mouse.y = event.y;
+            }
+        );
+
+        // create particle
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            // method to draw individual particle
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'rgba(100, 255, 218, 0.1)';
+                ctx.fill();
+            }
+            // check particle position, check mouse position, move the particle, draw the particle
+            update() {
+                //check if particle is still within canvas
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+
+                //check collision detection - mouse position / particle position
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < mouse.radius + this.size){
+                    if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
+                        this.x += 5;
+                    }
+                    if (mouse.x > this.x && this.x > this.size * 10) {
+                        this.x -= 5;
+                    }
+                    if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
+                        this.y += 5;
+                    }
+                    if (mouse.y > this.y && this.y > this.size * 10) {
+                        this.y -= 5;
+                    }
+                }
+                // move particle
+                this.x += this.directionX;
+                this.y += this.directionY;
+                // draw particle
+                this.draw();
+            }
+        }
+
+        // create particle array
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 0.4) - 0.2;
+                let directionY = (Math.random() * 0.4) - 0.2;
+                let color = '#64ffda';
+
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        // animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0,0,innerWidth, innerHeight);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        }
+
+        // check if particles are close enough to draw line between them
+        function connect(){
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                    + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    if (distance < (canvas.width/7) * (canvas.height/7)) {
+                        opacityValue = 1 - (distance/20000);
+                        ctx.strokeStyle='rgba(100, 255, 218, ' + opacityValue + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        // resize event
+        window.addEventListener('resize',
+            function(){
+                canvas.width = innerWidth;
+                canvas.height = innerHeight;
+                mouse.radius = ((canvas.height/120) * (canvas.height/120));
+                init();
+            }
+        );
+
+        // mouse out event
+        window.addEventListener('mouseout',
+            function(){
+                mouse.x = undefined;
+                mouse.y = undefined;
+            }
+        )
+
+        init();
+        animate();
+
+    </script>
+</body>
+</html>
